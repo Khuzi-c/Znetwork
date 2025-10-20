@@ -1,0 +1,6 @@
+services:
+  - type: static
+    name: znetwork-static
+    env: static
+    buildCommand: "cd \"Zay-order2 - Copy\" && npm ci && npm run build"
+    staticPublishPath: "Zay-order2 - Copy/dist"

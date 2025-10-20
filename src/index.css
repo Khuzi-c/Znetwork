@@ -1,0 +1,451 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom CSS Variables for Theme Colors */
+:root {
+  --gradient-red: #D51A0C;
+  --gradient-blue: #3B04E0;
+  --gradient-dark-blue: #03124C;
+  --text-primary: #ffffff;
+  --text-secondary: #b0b0b0;
+  --card-bg: rgba(255, 255, 255, 0.05);
+  --card-border: rgba(255, 255, 255, 0.1);
+  --glass-bg: rgba(0, 0, 0, 0.3);
+}
+
+/* Global Styles */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  background: linear-gradient(135deg, var(--gradient-red) 0%, var(--gradient-blue) 50%, var(--gradient-dark-blue) 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+  color: var(--text-primary);
+  position: relative;
+  /* Cursor is controlled via CSS variable set by CursorCycle */
+  cursor: var(--app-cursor, auto);
+}
+
+/* Keep same cursor on hover for typical interactive elements */
+a, button, [role="button"], .clickable, input, textarea, select, label {
+  cursor: var(--app-cursor, auto) !important;
+}
+
+/* Dark overlay for better contrast */
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Futuristic Background Pattern */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(circle at 20% 80%, rgba(213, 26, 12, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(59, 4, 224, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(3, 18, 76, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Glass morphism effect */
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+}
+
+/* Futuristic glow effects */
+.glow-red {
+  box-shadow: 0 0 20px rgba(213, 26, 12, 0.3);
+}
+
+.glow-blue {
+  box-shadow: 0 0 20px rgba(59, 4, 224, 0.3);
+}
+
+.glow-yellow {
+  box-shadow: 0 0 20px rgba(234, 179, 8, 0.4);
+}
+
+.glow-hover:hover {
+  box-shadow: 0 0 30px rgba(213, 26, 12, 0.5), 0 0 60px rgba(59, 4, 224, 0.3);
+  transform: translateY(-5px);
+}
+
+/* Animated gradient text */
+.gradient-text {
+  background: linear-gradient(45deg, var(--gradient-red), var(--gradient-blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Futuristic button styles */
+.futuristic-btn {
+  background: linear-gradient(45deg, var(--gradient-red), var(--gradient-blue));
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.futuristic-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.futuristic-btn:hover::before {
+  left: 100%;
+}
+
+.futuristic-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(213, 26, 12, 0.3);
+}
+
+/* Profile card styles */
+.profile-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(15px);
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+}
+
+.profile-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gradient-red), var(--gradient-blue));
+}
+
+/* Badge styles */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  margin: 0 2px;
+  transition: transform 0.2s ease;
+}
+
+.badge:hover {
+  transform: scale(1.2);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, var(--gradient-red), var(--gradient-blue));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(45deg, var(--gradient-blue), var(--gradient-red));
+}
+
+/* Animation keyframes */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(213, 26, 12, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(59, 4, 224, 0.5); }
+}
+
+.float-animation {
+  animation: float 3s ease-in-out infinite;
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* --- Profile specific styling to match screenshots --- */
+/* Shared sections */
+.profile-banner {
+  width: 100%;
+  height: 110px;
+  overflow: hidden;
+  position: relative;
+}
+.profile-banner img {
+  width: 100%;
+  height: 110px;
+  object-fit: cover;
+}
+.profile-content {
+  padding: 18px;
+}
+
+/* Avatar with status */
+.profile-avatar {
+  width: 86px;
+  height: 86px;
+  border-radius: 50%;
+  border: 4px solid rgba(255,255,255,0.12);
+  position: relative;
+  overflow: hidden;
+  margin-top: -48px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+}
+.profile-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.status-indicator {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  position: absolute;
+  right: 4px;
+  bottom: 4px;
+  border: 3px solid #1e1b4b; /* matches dark card bg */
+}
+.status-indicator.online { background: #22c55e; box-shadow: 0 0 8px rgba(34,197,94,0.8); }
+.status-indicator.offline { background: #6b7280; }
+
+/* Titles and meta */
+.profile-info h2 {
+  margin: 8px 0 2px 0;
+  font-size: 24px;
+}
+.profile-tagline {
+  margin: 0;
+  opacity: 0.85;
+}
+.custom-status { opacity: 0.85; margin-top: 6px; }
+
+/* Social links row */
+.social-links { margin-top: 14px; display: grid; gap: 10px; }
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--card-border);
+  text-decoration: none;
+  color: var(--text-primary);
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease, border 0.2s ease;
+}
+.social-link:hover {
+  transform: translateY(-2px);
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(255,255,255,0.25);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.35);
+}
+.social-link:hover .social-icon {
+  animation: pulseIcon .6s ease-in-out;
+}
+@keyframes pulseIcon {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+.social-icon { font-size: 18px; }
+
+/* Full-screen "ink spread" overlay used on social link clicks */
+.ink-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1000;
+}
+.ink-overlay::before {
+  content: '';
+  position: absolute;
+  left: var(--ink-x);
+  top: var(--ink-y);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--ink-color, #ff0000);
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0.9;
+  filter: blur(2px);
+  animation: ink-spread 2.2s ease-out forwards;
+}
+.ink-overlay.has-image::before {
+  background: var(--ink-color, #ff0000);
+  -webkit-mask-image: var(--ink-image);
+  mask-image: var(--ink-image);
+  -webkit-mask-size: cover;
+  mask-size: cover;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+@keyframes ink-spread {
+  0% { transform: translate(-50%, -50%) scale(0); opacity: 0.9; }
+  60% { transform: translate(-50%, -50%) scale(25); opacity: 0.6; }
+  100% { transform: translate(-50%, -50%) scale(60); opacity: 0.0; }
+}
+
+/* Discord card subtle tint and gradient accent line */
+.discord-card { background: linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.35)); }
+/* Make The Z banner slightly bigger */
+.discord-card .profile-banner { height: 140px; }
+.discord-card .profile-banner img { height: 140px; }
+
+/* Roblox card header gradient bar */
+.roblox-card { position: relative; }
+.roblox-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 56px;
+  background: linear-gradient(90deg, #22c55e, #3b82f6);
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+.roblox-banner { height: 76px; }
+
+/* Remove header gradient when using a full banner */
+.roblox-card.no-header::before { display: none; }
+
+/* Clickable banner GIF (target ~16:9, 800x450) */
+.roblox-banner-gif {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9; /* 800x450 */
+  overflow: hidden;
+}
+.roblox-banner-gif img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Roblox CTA */
+.roblox-profile-btn {
+  margin-top: 12px;
+  display: inline-block;
+  background: linear-gradient(135deg, #ef4444, #8b5cf6);
+  border: none;
+  padding: 10px 16px;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 12px;
+  font-weight: 600;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.roblox-profile-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(139,92,246,.35); }
+
+/* Roblox badges grid */
+.roblox-badges { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+.roblox-badge { width: 56px; height: 56px; border-radius: 12px; overflow: hidden; background: rgba(255,255,255,0.06); border: 1px solid var(--card-border); display: flex; align-items: center; justify-content: center; }
+.roblox-badge img { width: 48px; height: 48px; object-fit: contain; }
+
+/* Align letter badges T R A D E consistently */
+.roblox-badges .letter-badge img { width: 48px; height: 48px; display: block; }
+
+/* ZPM Sword special badge */
+/* ZPM sword now intended for Discord badge row; keep style for reuse */
+.roblox-badge.zpm-sword, .discord-badges .zpm-sword {
+  position: relative;
+  background: linear-gradient(135deg, rgba(255,215,0,0.15), rgba(255,105,180,0.15));
+  border: 1px solid rgba(255,215,0,0.55);
+  box-shadow: 0 0 18px rgba(255,215,0,0.25);
+}
+.roblox-badge.zpm-sword::after, .discord-badges .zpm-sword::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  background: conic-gradient(from 0deg, #ff6b6b, #f5a524, #22c55e, #3b82f6, #8b5cf6, #ec4899, #ff6b6b);
+  filter: blur(18px);
+  opacity: 0.35;
+  z-index: -1;
+}
+.sword-badge {
+  font-size: 22px;
+  animation: swordPulse 1.6s infinite ease-in-out;
+}
+@keyframes swordPulse {
+  0%, 100% { transform: scale(1); text-shadow: 0 0 10px rgba(255,215,0,0.6); }
+  50% { transform: scale(1.12); text-shadow: 0 0 18px rgba(255,215,0,0.9); }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .glass-card {
+    margin: 10px;
+    border-radius: 12px;
+  }
+  
+  .profile-card {
+    border-radius: 16px;
+  }
+}
+
+/* Discord Widget Styling */
+.discord-widget-container {
+  display: flex;
+  justify-content: center;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.discord-widget-container iframe {
+  border-radius: 8px;
+  max-width: 100%;
+}
+
+/* Cursor burst overlay container */
+.cursor-burst-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none; /* never block clicks */
+  z-index: 2000; /* above content, below modal overlays if any */
+}
+
+/* Images created dynamically get additional inline styles for animation */

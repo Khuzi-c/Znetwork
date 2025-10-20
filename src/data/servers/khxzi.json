@@ -1,0 +1,34 @@
+{
+  
+    "servers": [
+    {
+        "id": "999999",
+  "name": "Khxzi's Dev Services",
+  "description": "🚀 Professional Development Services | 💻 Custom Bots & Websites | 🎨 UI/UX Design | 📱 Mobile Apps | 🛠️ Full-Stack Solutions | ⚡ Fast Delivery | 💯 Satisfaction Guaranteed | 🎯 Quality Code | 🔥 Modern Tech Stack | 💬 24/7 Support",
+  "pfp_url": "https://cdn.discordapp.com/icons/1418226394495713426/a_f5b8c3d2e1a4b6c7d8e9f0a1b2c3d4e5.gif",
+  "banner_url": "https://cdn.discordapp.com/banners/1418226394495713426/banner_image.png",
+  "invite_url": "https://discord.gg/THbZwYpsJs",
+  "created_at": "2025-01-01T00:00:00.000Z",
+  "featured": true,
+  "custom_tag": "Dev Khxzi",
+  "widget_embed": "<iframe src=\"https://discord.com/widget?id=1418226394495713426&theme=dark\" width=\"350\" height=\"400\" allowtransparency=\"true\" frameborder=\"0\" sandbox=\"allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts\"></iframe>"
+ },
+    {
+      "id": "123456789",
+      "name": "Server2 test",
+      "description": "server",
+      "pfp_url": "https://cdn.discordapp.com/icons/<serverId>/<iconHash>.png",
+      "banner_url": "https://cdn.discordapp.com/banners/<serverId>/<bannerHash>.png",
+      "invite_url": "https://discord.gg/example",
+      "created_at": "2025-02-01T00:00:00.000Z",
+      "featured": false,
+      "custom_tag": "Test",
+      "widget_embed": "null"
+    }
+  ]
+
+
+
+
+}
+
